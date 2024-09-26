@@ -80,8 +80,8 @@ void Error_Handler(void);
 #define SEG2_GPIO_Port GPIOB
 #define LED_RED1_Pin GPIO_PIN_8
 #define LED_RED1_GPIO_Port GPIOA
-#define LED_AMBER0A9_Pin GPIO_PIN_9
-#define LED_AMBER0A9_GPIO_Port GPIOA
+#define LED_AMBER1_Pin GPIO_PIN_9
+#define LED_AMBER1_GPIO_Port GPIOA
 #define LED_GREEN1_Pin GPIO_PIN_10
 #define LED_GREEN1_GPIO_Port GPIOA
 #define BT_MODE_Pin GPIO_PIN_11
