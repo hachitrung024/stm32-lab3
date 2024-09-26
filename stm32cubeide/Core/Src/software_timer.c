@@ -6,10 +6,11 @@
  */
 
 #include "software_timer.h"
-uint32_t interrupt_duration  = 20;
 
-uint32_t timer_counters[MAX_TIMERS] ={0,0};
-uint8_t timer_flags[] = {0,0};
+static uint32_t interrupt_duration  = 10;
+
+static uint32_t timer_counters[MAX_TIMERS] ={0,0};
+static uint8_t timer_flags[] = {0,0};
 
 
 uint8_t isFlagTimer(uint8_t index){
@@ -24,7 +25,7 @@ void timerInit(uint32_t prescaler, uint32_t period){
 	interrupt_duration  = (prescaler+1)*(period+1)*1000/frequency;
 }
 void timerRun(){
-	for(int i = 0 ; i < MAX_TIMERS; i++ ){
+	for(uint8_t i = 0 ; i < MAX_TIMERS; i++ ){
 		if(timer_counters[i] > 0){
 			timer_counters[i] -= interrupt_duration;
 			if(timer_counters[i] <=0){

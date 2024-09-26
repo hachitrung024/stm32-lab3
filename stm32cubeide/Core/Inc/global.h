@@ -10,18 +10,26 @@
 
 #define INIT 0
 
-#define AUTO_RED_GREEN 1
-#define AUTO_RED_AMPER 2
-#define AUTO_GREEN_RED 3
-#define AUTO_AMPER_RED 4
+#define SEL_AUTO		1
+#define SEL_MAN			2
+#define SEL_RED			3
+#define SEL_AMBER		4
+#define SEL_GREEN		5
 
-#define MAN_RED_GREEN 11
-#define MAN_RED_AMPER 12
-#define MAN_GREEN_RED 13
-#define MAN_AMPER_RED 14
+#define AUTO_RED_GREEN 	6
+#define AUTO_RED_AMBER 	7
+#define AUTO_GREEN_RED 	8
+#define AUTO_AMBER_RED 	9
+
+#define MAN_IDLE		10
+#define MAN_RED_GREEN 	11
+#define MAN_RED_AMBER 	12
+#define MAN_GREEN_RED 	13
+#define MAN_AMBER_RED 	14
 
 #include "main.h"
 #include "software_timer.h"
+#include "button_reading.h"
 extern uint8_t status;
 
 #endif /* INC_GLOBAL_H_ */
