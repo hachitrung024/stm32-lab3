@@ -21,7 +21,6 @@
 #define AUTO_GREEN_RED 	8
 #define AUTO_AMBER_RED 	9
 
-#define MAN_IDLE		10
 #define MAN_RED_GREEN 	11
 #define MAN_RED_AMBER 	12
 #define MAN_GREEN_RED 	13

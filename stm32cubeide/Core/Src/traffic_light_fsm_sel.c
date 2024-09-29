@@ -30,7 +30,7 @@ void traffic_light_fsm_sel(){
 			}else if(isButtonPressed(2)){
 				status = AUTO_RED_GREEN;
 				setTimer(0, 3000);
-			}else if(isButtonPressed(1)){
+			}else if(isButtonPressed(0)){
 				status = SEL_MAN;
 				setTimer(0, 5000);
 			}
@@ -50,7 +50,7 @@ void traffic_light_fsm_sel(){
 			if(isButtonPressed(2)){
 				status = MAN_RED_GREEN;
 				setTimer(0, 10000);
-			}else if(isButtonPressed(1)){
+			}else if(isButtonPressed(0)){
 				status = SEL_RED;
 				setTimer(0, 5000);
 			}
@@ -70,7 +70,7 @@ void traffic_light_fsm_sel(){
 			if(isButtonPressed(2)){
 				status = AUTO_RED_GREEN;
 				setTimer(0, 3000);
-			}else if(isButtonPressed(1)){
+			}else if(isButtonPressed(0)){
 				status = SEL_AMBER;
 				setTimer(0, 5000);
 			}
@@ -90,7 +90,7 @@ void traffic_light_fsm_sel(){
 			if(isButtonPressed(2)){
 				status = AUTO_RED_GREEN;
 				setTimer(0, 3000);
-			}else if(isButtonPressed(1)){
+			}else if(isButtonPressed(0)){
 				status = SEL_GREEN;
 				setTimer(0, 5000);
 			}
@@ -110,10 +110,12 @@ void traffic_light_fsm_sel(){
 			if(isButtonPressed(2)){
 				status = AUTO_RED_GREEN;
 				setTimer(0, 3000);
-			}else if(isButtonPressed(1)){
+			}else if(isButtonPressed(0)){
 				status = SEL_AUTO;
 				setTimer(0, 5000);
 			}
+			break;
+		default:
 			break;
 	}
 }
