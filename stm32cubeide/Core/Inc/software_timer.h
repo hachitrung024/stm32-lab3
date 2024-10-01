@@ -8,7 +8,7 @@
 #ifndef INC_SOFTWARE_TIMER_H_
 #define INC_SOFTWARE_TIMER_H_
 
-#define MAX_TIMERS 2
+#define MAX_TIMERS 3
 
 #include "main.h"
 uint8_t isFlagTimer(uint8_t index);

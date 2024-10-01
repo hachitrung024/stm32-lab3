@@ -1,4 +1,6 @@
 "./Core/Src/button_reading.o"
+"./Core/Src/counter.o"
+"./Core/Src/display7SEG.o"
 "./Core/Src/global.o"
 "./Core/Src/main.o"
 "./Core/Src/software_timer.o"

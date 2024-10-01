@@ -1,0 +1,3 @@
+traffic_light_counter.c:14:6:runCounter	8	static
+traffic_light_counter.c:24:6:setCounter	16	static
+traffic_light_counter.c:27:9:isFlagCounter	4	static

@@ -25,8 +25,10 @@
 #include "traffic_light_fsm_sel.h"
 #include "traffic_light_fsm_auto.h"
 #include "traffic_light_fsm_man.h"
+#include "display7SEG.h"
 #include "software_timer.h"
 #include "button_reading.h"
+#include "counter.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,12 +100,19 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer(0, 1000);
+  setTimer(0, 2000);
+  setTimer(1, 1000);
+  setTimer(2, 1000);
+  red_duration = 5;
+  amber_duration = 2;
+  green_duration = 3;
   while (1)
   {
 	  traffic_light_fsm_sel();
 	  traffic_light_fsm_auto();
 	  traffic_light_fsm_man();
+	  run7SEG();
+	  counterRun();
 
     /* USER CODE END WHILE */
 

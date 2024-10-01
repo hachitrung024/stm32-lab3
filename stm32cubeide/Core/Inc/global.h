@@ -29,6 +29,8 @@
 #include "main.h"
 #include "software_timer.h"
 #include "button_reading.h"
+#include "display7SEG.h"
+#include "counter.h"
 extern uint8_t status;
 
 #endif /* INC_GLOBAL_H_ */
