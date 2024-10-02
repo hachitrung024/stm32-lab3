@@ -26,6 +26,10 @@
 #define MAN_GREEN_RED 	13
 #define MAN_AMBER_RED 	14
 
+#define SET_RED			20
+#define SET_AMBER		21
+#define SET_GREEN		22
+
 #include "main.h"
 #include "software_timer.h"
 #include "button_reading.h"

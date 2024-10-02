@@ -23,3 +23,6 @@ void counterRun(){
 		updateBuffer7SEG(counters[0], counters[1]);
 	}
 }
+void increaseRed(){
+	red_duration++;
+}

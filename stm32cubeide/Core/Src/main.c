@@ -25,6 +25,7 @@
 #include "traffic_light_fsm_sel.h"
 #include "traffic_light_fsm_auto.h"
 #include "traffic_light_fsm_man.h"
+#include "traffic_light_fsm_set.h"
 #include "display7SEG.h"
 #include "software_timer.h"
 #include "button_reading.h"
@@ -111,6 +112,7 @@ int main(void)
 	  traffic_light_fsm_sel();
 	  traffic_light_fsm_auto();
 	  traffic_light_fsm_man();
+	  traffic_light_fsm_set();
 	  run7SEG();
 	  counterRun();
 

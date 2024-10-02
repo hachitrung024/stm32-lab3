@@ -23,7 +23,7 @@ void setTimer(uint8_t index, uint32_t duration){
 void timerInit(uint32_t prescaler, uint32_t period){
 	uint32_t frequency = HAL_RCC_GetHCLKFreq();
 	interrupt_duration  = (prescaler+1)*(period+1)*1000/frequency;
-	interrupt_duration = 10;
+//	interrupt_duration = 10;
 }
 void timerRun(){
 	for(uint8_t i = 0 ; i < MAX_TIMERS; i++ ){

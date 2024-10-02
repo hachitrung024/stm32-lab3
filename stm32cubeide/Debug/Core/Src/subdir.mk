@@ -18,7 +18,8 @@ C_SRCS += \
 ../Core/Src/system_stm32f1xx.c \
 ../Core/Src/traffic_light_fsm_auto.c \
 ../Core/Src/traffic_light_fsm_man.c \
-../Core/Src/traffic_light_fsm_sel.c 
+../Core/Src/traffic_light_fsm_sel.c \
+../Core/Src/traffic_light_fsm_set.c 
 
 OBJS += \
 ./Core/Src/button_reading.o \
@@ -34,7 +35,8 @@ OBJS += \
 ./Core/Src/system_stm32f1xx.o \
 ./Core/Src/traffic_light_fsm_auto.o \
 ./Core/Src/traffic_light_fsm_man.o \
-./Core/Src/traffic_light_fsm_sel.o 
+./Core/Src/traffic_light_fsm_sel.o \
+./Core/Src/traffic_light_fsm_set.o 
 
 C_DEPS += \
 ./Core/Src/button_reading.d \
@@ -50,7 +52,8 @@ C_DEPS += \
 ./Core/Src/system_stm32f1xx.d \
 ./Core/Src/traffic_light_fsm_auto.d \
 ./Core/Src/traffic_light_fsm_man.d \
-./Core/Src/traffic_light_fsm_sel.d 
+./Core/Src/traffic_light_fsm_sel.d \
+./Core/Src/traffic_light_fsm_set.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
