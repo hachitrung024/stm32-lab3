@@ -16,6 +16,7 @@ void traffic_light_fsm_sel(){
 				setCounter(0, 0);
 				setCounter(1, 0);
 				setTimer(0, 5000);
+				display7SEG(1);
 			}
 			break;
 		case SEL_AUTO:
