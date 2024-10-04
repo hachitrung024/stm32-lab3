@@ -18,5 +18,5 @@ extern uint8_t amber_duration;
 extern uint8_t green_duration;
 void setCounter(uint8_t index, uint8_t value);
 void counterRun();
-void increaseRed();
+void increaseDuration(uint8_t index);
 #endif /* INC_COUNTER_H_ */

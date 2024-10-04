@@ -19,6 +19,7 @@ void traffic_light_fsm_sel(){
 			}
 			break;
 		case SEL_AUTO:
+			display7SEG(1);
 			HAL_GPIO_WritePin(LED_RED0_GPIO_Port, LED_RED0_Pin, RESET);
 			HAL_GPIO_WritePin(LED_AMBER0_GPIO_Port, LED_AMBER0_Pin, RESET);
 			HAL_GPIO_WritePin(LED_GREEN0_GPIO_Port, LED_GREEN0_Pin, RESET);
@@ -36,6 +37,7 @@ void traffic_light_fsm_sel(){
 			}
 			break;
 		case SEL_MAN:
+			display7SEG(2);
 			if(isFlagTimer(2)){
 				setTimer(2, 500);
 				HAL_GPIO_TogglePin(LED_RED0_GPIO_Port, LED_RED0_Pin);
@@ -59,6 +61,7 @@ void traffic_light_fsm_sel(){
 			}
 			break;
 		case SEL_RED:
+			display7SEG(3);
 			HAL_GPIO_WritePin(LED_AMBER0_GPIO_Port, LED_AMBER0_Pin, SET);
 			HAL_GPIO_WritePin(LED_GREEN0_GPIO_Port, LED_GREEN0_Pin, SET);
 
@@ -82,6 +85,7 @@ void traffic_light_fsm_sel(){
 			}
 			break;
 		case SEL_AMBER:
+			display7SEG(4);
 			HAL_GPIO_WritePin(LED_RED0_GPIO_Port, LED_RED0_Pin, SET);
 			HAL_GPIO_WritePin(LED_GREEN0_GPIO_Port, LED_GREEN0_Pin, SET);
 
@@ -105,6 +109,7 @@ void traffic_light_fsm_sel(){
 			}
 			break;
 		case SEL_GREEN:
+			display7SEG(5);
 			HAL_GPIO_WritePin(LED_RED0_GPIO_Port, LED_RED0_Pin, SET);
 			HAL_GPIO_WritePin(LED_AMBER0_GPIO_Port, LED_AMBER0_Pin, SET);
 
