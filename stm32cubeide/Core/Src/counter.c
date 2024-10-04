@@ -27,14 +27,14 @@ void increaseDuration(uint8_t index){
 	if(index == 0){
 		red_duration++;
 		if(red_duration > 99) red_duration = green_duration + amber_duration;
-		updateBuffer7SEG(red_duration, 1);
+		updateBuffer7SEG(red_duration, red_duration);
 	}else if(index == 1){
 		amber_duration++;
 		if(amber_duration >= red_duration) amber_duration = red_duration - green_duration;
-		updateBuffer7SEG(amber_duration, 2);
+		updateBuffer7SEG(amber_duration, amber_duration);
 	}else if(index == 2){
 		green_duration++;
 		if(green_duration >= red_duration) green_duration = red_duration - amber_duration;
-		updateBuffer7SEG(green_duration, 3);
+		updateBuffer7SEG(green_duration, green_duration);
 	}
 }
