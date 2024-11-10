@@ -1,0 +1,4 @@
+global.c:16:6:setCounter	16	static
+global.c:21:6:counterRun	8	static
+global.c:30:6:increaseDuration	16	static
+global.c:42:6:led_on	16	static
