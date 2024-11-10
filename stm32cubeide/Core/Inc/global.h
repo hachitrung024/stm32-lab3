@@ -8,33 +8,41 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
-#define INIT 0
+enum {
+	INIT,
+	SEL_AUTO,SEL_MAN,SEL_RED,SEL_AMBER,SEL_GREEN,
+	AUTO_RED_GREEN,AUTO_RED_AMBER,AUTO_GREEN_RED,AUTO_AMBER_RED,
+	MAN_RED_GREEN,MAN_RED_AMBER,MAN_GREEN_RED,MAN_AMBER_RED,
+	SET_RED,SET_AMBER,SET_GREEN
+}states;
 
-#define SEL_AUTO		1
-#define SEL_MAN			2
-#define SEL_RED			3
-#define SEL_AMBER		4
-#define SEL_GREEN		5
+enum{
+	WAY1, WAY2,
+	RED, AMBER, GREEN
+}leds;
 
-#define AUTO_RED_GREEN 	6
-#define AUTO_RED_AMBER 	7
-#define AUTO_GREEN_RED 	8
-#define AUTO_AMBER_RED 	9
+#define LED_ON	GPIO_PIN_RESET
+#define LED_OFF GPIO_PIN_SET
 
-#define MAN_RED_GREEN 	11
-#define MAN_RED_AMBER 	12
-#define MAN_GREEN_RED 	13
-#define MAN_AMBER_RED 	14
+#define BT_MODE				0
+#define BT_SET				1
+#define BT_OK				2
 
-#define SET_RED			20
-#define SET_AMBER		21
-#define SET_GREEN		22
-
+#define SELECT_TIMEOUT	5000
+#define MANUAL_TIMEOUT	20000
+#define SETTING_TIMEOUT 15000
 #include "main.h"
 #include "software_timer.h"
 #include "button_reading.h"
 #include "display7SEG.h"
-#include "counter.h"
 extern uint8_t status;
-
+extern uint8_t counters[2];
+extern uint8_t red_duration;
+extern uint8_t amber_duration;
+extern uint8_t green_duration;
+extern uint8_t temp_duration;
+void setCounter(uint8_t index, uint8_t value);
+void counterRun();
+void increaseDuration(uint8_t index);
+void led_on(uint8_t way, uint8_t led);
 #endif /* INC_GLOBAL_H_ */

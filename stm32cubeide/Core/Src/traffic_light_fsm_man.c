@@ -9,55 +9,44 @@
 
 void traffic_light_fsm_man(){
 	switch (status) {
-		break;
 		case MAN_RED_GREEN:
-			HAL_GPIO_WritePin(LED_RED0_GPIO_Port, LED_RED0_Pin, RESET);
-			HAL_GPIO_WritePin(LED_AMBER0_GPIO_Port, LED_AMBER0_Pin, SET);
-			HAL_GPIO_WritePin(LED_GREEN0_GPIO_Port, LED_GREEN0_Pin, SET);
-
-			HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, SET);
-			HAL_GPIO_WritePin(LED_AMBER1_GPIO_Port, LED_AMBER1_Pin, SET);
-			HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, RESET);
-			if(isFlagTimer(0)){
+			if(isFlagTimer(0)|| isButtonPressed(BT_MODE)){
 				status = INIT;
-			}else if(isButtonPressed(0)){
-				status = SEL_MAN;
-			}else if(isButtonPressed(1)){
+			}else if(isButtonPressed(BT_SET)){
 				status = MAN_RED_AMBER;
-				setTimer(0, 2000);
+				led_on(WAY1, RED);
+				led_on(WAY2, AMBER);
+				setTimer(0, MANUAL_TIMEOUT);
 			}
 			break;
 		case MAN_RED_AMBER:
-			HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, SET);
-			HAL_GPIO_WritePin(LED_AMBER1_GPIO_Port, LED_AMBER1_Pin, RESET);
-			HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, SET);
-			if(isFlagTimer(0)){
+			if(isFlagTimer(0)|| isButtonPressed(BT_MODE)){
+				status = INIT;
+			}else if(isButtonPressed(BT_SET)){
 				status = MAN_GREEN_RED;
-				setTimer(0, 10000);
+				led_on(WAY1, GREEN);
+				led_on(WAY2, RED);
+				setTimer(0, MANUAL_TIMEOUT);
 			}
 			break;
 		case MAN_GREEN_RED:
-			HAL_GPIO_WritePin(LED_RED0_GPIO_Port, LED_RED0_Pin, SET);
-			HAL_GPIO_WritePin(LED_AMBER0_GPIO_Port, LED_AMBER0_Pin, SET);
-			HAL_GPIO_WritePin(LED_GREEN0_GPIO_Port, LED_GREEN0_Pin, RESET);
-
-			HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, RESET);
-			HAL_GPIO_WritePin(LED_AMBER1_GPIO_Port, LED_AMBER1_Pin, SET);
-			HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, SET);
-			if(isFlagTimer(0)){
+			if(isFlagTimer(0)|| isButtonPressed(BT_MODE)){
 				status = INIT;
-			}else if(isButtonPressed(1)){
+			}else if(isButtonPressed(BT_SET)){
 				status = MAN_AMBER_RED;
-				setTimer(0, 2000);
+				led_on(WAY1, AMBER);
+				led_on(WAY2, RED);
+				setTimer(0, MANUAL_TIMEOUT);
 			}
 			break;
 		case MAN_AMBER_RED:
-			HAL_GPIO_WritePin(LED_RED0_GPIO_Port, LED_RED0_Pin, SET);
-			HAL_GPIO_WritePin(LED_AMBER0_GPIO_Port, LED_AMBER0_Pin, RESET);
-			HAL_GPIO_WritePin(LED_GREEN0_GPIO_Port, LED_GREEN0_Pin, SET);
-			if(isFlagTimer(0)){
+			if(isFlagTimer(0)|| isButtonPressed(BT_MODE)){
+				status = INIT;
+			}else if(isButtonPressed(BT_SET)){
 				status = MAN_RED_GREEN;
-				setTimer(0, 10000);
+				led_on(WAY1, RED);
+				led_on(WAY2, GREEN);
+				setTimer(0, MANUAL_TIMEOUT);
 			}
 			break;
 		default:

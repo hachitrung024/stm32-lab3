@@ -29,7 +29,6 @@
 #include "display7SEG.h"
 #include "software_timer.h"
 #include "button_reading.h"
-#include "counter.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,9 +100,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer(0, 2000);
-  setTimer(1, 1000);
-  setTimer(2, 1000);
+  setTimer(0, 10);
+  setTimer(1, 10);
+  setTimer(2, 10);
   red_duration = 5;
   amber_duration = 2;
   green_duration = 3;
@@ -114,8 +113,6 @@ int main(void)
 	  traffic_light_fsm_man();
 	  traffic_light_fsm_set();
 	  run7SEG();
-	  counterRun();
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

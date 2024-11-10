@@ -26,10 +26,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/traffic_light_fsm_sel.h ../Core/Inc/global.h \
  ../Core/Inc/main.h ../Core/Inc/software_timer.h \
  ../Core/Inc/button_reading.h ../Core/Inc/display7SEG.h \
- ../Core/Inc/counter.h ../Core/Inc/traffic_light_fsm_auto.h \
- ../Core/Inc/traffic_light_fsm_man.h ../Core/Inc/traffic_light_fsm_set.h \
- ../Core/Inc/display7SEG.h ../Core/Inc/software_timer.h \
- ../Core/Inc/button_reading.h ../Core/Inc/counter.h
+ ../Core/Inc/traffic_light_fsm_auto.h ../Core/Inc/traffic_light_fsm_man.h \
+ ../Core/Inc/traffic_light_fsm_set.h ../Core/Inc/display7SEG.h \
+ ../Core/Inc/software_timer.h ../Core/Inc/button_reading.h
 
 ../Core/Inc/main.h:
 
@@ -93,8 +92,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Core/Inc/display7SEG.h:
 
-../Core/Inc/counter.h:
-
 ../Core/Inc/traffic_light_fsm_auto.h:
 
 ../Core/Inc/traffic_light_fsm_man.h:
@@ -106,5 +103,3 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/software_timer.h:
 
 ../Core/Inc/button_reading.h:
-
-../Core/Inc/counter.h:

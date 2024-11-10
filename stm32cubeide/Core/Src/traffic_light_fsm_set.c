@@ -10,57 +10,73 @@
 void traffic_light_fsm_set(){
 	switch (status) {
 		case SET_RED:
-			HAL_GPIO_WritePin(LED_RED0_GPIO_Port, LED_RED0_Pin, RESET);
-			HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, RESET);
-			if(isButtonPressed(1)){
-				increaseDuration(0);
-				setTimer(0, 20000);
+			if(isButtonPressed(BT_SET)){
+				temp_duration++;
+				if(temp_duration > 99) temp_duration = 5;
+				updateBuffer7SEG(3, temp_duration);
+				setTimer(0, SETTING_TIMEOUT);
 			}
-			if(isButtonHolding(1)){
+			if(isButtonHolding(BT_SET)){
 				if(isFlagTimer(2)){
 					setTimer(2, 200);
-					increaseDuration(0);
+					temp_duration++;
+					if(temp_duration > 99) temp_duration = 5;
+					updateBuffer7SEG(3, temp_duration);
 				}
 			}
-			if(isButtonPressed(2)|| isFlagTimer(0)){
+			if(isButtonPressed(BT_OK)){
+				red_duration = temp_duration;
+				if(red_duration <= amber_duration) amber_duration = 2;
 				green_duration = red_duration - amber_duration;
+				status = INIT;
+			}else if(isFlagTimer(0) || isButtonPressed(BT_MODE)){
 				status = INIT;
 			}
 			break;
 		case SET_AMBER:
-			HAL_GPIO_WritePin(LED_AMBER0_GPIO_Port, LED_AMBER0_Pin, RESET);
-			HAL_GPIO_WritePin(LED_AMBER1_GPIO_Port, LED_AMBER1_Pin, RESET);
-			if(isButtonPressed(1)){
-				increaseDuration(1);
-				setTimer(0, 20000);
+			if(isButtonPressed(BT_SET)){
+				temp_duration++;
+				if(temp_duration >= green_duration) temp_duration = 2;
+				updateBuffer7SEG(3, temp_duration);
+				setTimer(0, SETTING_TIMEOUT);
 			}
-			if(isButtonHolding(1)){
+			if(isButtonHolding(BT_SET)){
 				if(isFlagTimer(2)){
 					setTimer(2, 200);
-					increaseDuration(1);
+					temp_duration++;
+					if(temp_duration >= green_duration) temp_duration = 2;
+					updateBuffer7SEG(3, temp_duration);
 				}
 			}
-			if(isButtonPressed(2)|| isFlagTimer(0)){
+			if(isButtonPressed(BT_OK)){
+				amber_duration = temp_duration;
 				green_duration = red_duration - amber_duration;
+				status = INIT;
+			}else if(isFlagTimer(0) || isButtonPressed(BT_MODE)){
 				status = INIT;
 			}
 			break;
 		case SET_GREEN:
-			HAL_GPIO_WritePin(LED_GREEN0_GPIO_Port, LED_GREEN0_Pin, RESET);
-			HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, RESET);
-
-			if(isButtonPressed(1)){
-				increaseDuration(2);
-				setTimer(0, 20000);
+			if(isButtonPressed(BT_SET)){
+				temp_duration++;
+				if(temp_duration >= red_duration) temp_duration = 3;
+				updateBuffer7SEG(3, temp_duration);
+				setTimer(0, SETTING_TIMEOUT);
 			}
-			if(isButtonHolding(1)){
+			if(isButtonHolding(BT_SET)){
 				if(isFlagTimer(2)){
 					setTimer(2, 200);
-					increaseDuration(2);
+					temp_duration++;
+					if(temp_duration >= red_duration) temp_duration = 3;
+					updateBuffer7SEG(3, temp_duration);
 				}
 			}
-			if(isButtonPressed(2)|| isFlagTimer(0)){
-				amber_duration = red_duration - green_duration;
+			if(isButtonPressed(BT_OK)){
+				green_duration = temp_duration;
+				if(green_duration <= amber_duration) amber_duration = 2;
+				red_duration = green_duration + amber_duration;
+				status = INIT;
+			}else if(isFlagTimer(0) || isButtonPressed(BT_MODE)){
 				status = INIT;
 			}
 			break;
