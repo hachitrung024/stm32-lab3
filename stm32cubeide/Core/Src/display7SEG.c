@@ -12,11 +12,8 @@ uint8_t led7SEG_index = 0;
 uint8_t led7SEG_buffer[MAX_LED7SEG];
 
 void run7SEG(){
-	if(isFlagTimer(1)){
-		setTimer(1, 100);
-		if(led7SEG_index >= MAX_LED7SEG) led7SEG_index = 0;
-		update7SEG(led7SEG_index++);
-	}
+	if(led7SEG_index >= MAX_LED7SEG) led7SEG_index = 0;
+	update7SEG(led7SEG_index++);
 }
 void updateBuffer7SEG(uint8_t num1, uint8_t num2){
 	led7SEG_buffer[0] = num1/10;

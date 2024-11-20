@@ -22,13 +22,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "traffic_light_fsm_sel.h"
-#include "traffic_light_fsm_auto.h"
-#include "traffic_light_fsm_man.h"
-#include "traffic_light_fsm_set.h"
-#include "display7SEG.h"
+#include "SCH.h"
 #include "software_timer.h"
 #include "button_reading.h"
+#include "traffic_light_run.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -100,19 +97,10 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer(0, 10);
-  setTimer(1, 10);
-  setTimer(2, 10);
-  red_duration = 5;
-  amber_duration = 2;
-  green_duration = 3;
+  traffic_light_init();
   while (1)
   {
-	  traffic_light_fsm_sel();
-	  traffic_light_fsm_auto();
-	  traffic_light_fsm_man();
-	  traffic_light_fsm_set();
-	  run7SEG();
+	  SCH_Dispatch_Tasks();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -254,6 +242,7 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim ){
 	timerRun();
 	buttonRun();
+	SCH_Update();
 }
 /* USER CODE END 4 */
 

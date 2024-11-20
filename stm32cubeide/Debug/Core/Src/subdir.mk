@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/SCH.c \
 ../Core/Src/button_reading.c \
 ../Core/Src/display7SEG.c \
 ../Core/Src/global.c \
@@ -18,9 +19,11 @@ C_SRCS += \
 ../Core/Src/traffic_light_fsm_auto.c \
 ../Core/Src/traffic_light_fsm_man.c \
 ../Core/Src/traffic_light_fsm_sel.c \
-../Core/Src/traffic_light_fsm_set.c 
+../Core/Src/traffic_light_fsm_set.c \
+../Core/Src/traffic_light_run.c 
 
 OBJS += \
+./Core/Src/SCH.o \
 ./Core/Src/button_reading.o \
 ./Core/Src/display7SEG.o \
 ./Core/Src/global.o \
@@ -34,9 +37,11 @@ OBJS += \
 ./Core/Src/traffic_light_fsm_auto.o \
 ./Core/Src/traffic_light_fsm_man.o \
 ./Core/Src/traffic_light_fsm_sel.o \
-./Core/Src/traffic_light_fsm_set.o 
+./Core/Src/traffic_light_fsm_set.o \
+./Core/Src/traffic_light_run.o 
 
 C_DEPS += \
+./Core/Src/SCH.d \
 ./Core/Src/button_reading.d \
 ./Core/Src/display7SEG.d \
 ./Core/Src/global.d \
@@ -50,7 +55,8 @@ C_DEPS += \
 ./Core/Src/traffic_light_fsm_auto.d \
 ./Core/Src/traffic_light_fsm_man.d \
 ./Core/Src/traffic_light_fsm_sel.d \
-./Core/Src/traffic_light_fsm_set.d 
+./Core/Src/traffic_light_fsm_set.d \
+./Core/Src/traffic_light_run.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -1,0 +1,2 @@
+traffic_light_run.c:11:6:loop	8	static
+traffic_light_run.c:17:6:traffic_light_init	8	static
